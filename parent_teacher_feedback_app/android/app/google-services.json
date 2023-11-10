@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1015769960470",
+    "project_id": "scholar-ec7bd",
+    "storage_bucket": "scholar-ec7bd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1015769960470:android:588fa72bd0c725c871e537",
+        "android_client_info": {
+          "package_name": "com.example.parent_teacher_feedback_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNjyxeUGkFrnlLRqCKOtv7NTcjTiurpFE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
