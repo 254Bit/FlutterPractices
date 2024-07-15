@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_networking_app/auth/login_or_register.dart';
 import 'package:social_networking_app/pages/register.dart';
 import 'pages/login_page.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: RegisterPage(),
+      home: LoginOrRegister(),
     );
   }
 }

@@ -18,6 +18,7 @@ class _RegisterPageState extends State<RegisterPage> {
   static var usernameController = TextEditingController();
   static var passwordController = TextEditingController();
   static var confirmPasswordController = TextEditingController();
+   static var signUpController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +37,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 const SizedBox(height: 50),
                 // Welcome Back, You have been missed
                 const Text(
-                  'Let Us Create An Account',
+                  'Let Us Create An Account For You',
                   style: TextStyle(
                       color: Color.fromARGB(255, 22, 21, 21), fontSize: 16),
                 ),
@@ -44,7 +45,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 //Username text field
                 MyTextFields(
                   controller: usernameController,
-                  hintText: 'Username',
+                  hintText: 'Email',
                   obscureText: false,
                 ),
                 const SizedBox(height: 20),
@@ -66,8 +67,8 @@ class _RegisterPageState extends State<RegisterPage> {
 
                 //Sign in Button
                 MyButton(
-                  onTap: widget.onTap,
-                  //text: 'Sign Up',
+                  onTap: (){},
+                  textSign: 'Sign Up',
                 ),
 
                 // Or continue with
@@ -87,9 +88,9 @@ class _RegisterPageState extends State<RegisterPage> {
                         )),
                     const SizedBox(width: 7),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: widget.onTap,
                       child: const Text(
-                        'Login here',
+                        'Sign Up',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Color.fromARGB(255, 13, 98, 167),

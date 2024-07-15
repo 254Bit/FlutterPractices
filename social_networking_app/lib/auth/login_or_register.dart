@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:social_networking_app/pages/login_page.dart';
+import 'package:social_networking_app/pages/register.dart';
 
 class LoginOrRegister extends StatefulWidget {
   const LoginOrRegister({super.key});
@@ -8,11 +10,22 @@ class LoginOrRegister extends StatefulWidget {
 }
 
 class _LoginOrRegisterState extends State<LoginOrRegister> {
-
 // Initially show the login page
+  bool showLoginPage = true;
+
+// Toggle between login and register page
+  void togglePages() {
+    setState(() {
+      showLoginPage = !showLoginPage;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    if (showLoginPage) {
+      return LoginPage(onTap: togglePages);
+    } else {
+      return RegisterPage(onTap: togglePages);
+    }
   }
 }

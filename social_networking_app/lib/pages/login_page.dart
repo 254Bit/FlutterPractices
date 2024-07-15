@@ -7,19 +7,18 @@ class LoginPage extends StatefulWidget {
   const LoginPage({
     super.key,
     required this.onTap,
-    });
+  });
 
   // Text Editing Controllers
   static var usernameController = TextEditingController();
   static var passwordController = TextEditingController();
+  static var signInController = TextEditingController();
 
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 50),
                 // Welcome Back, You have been missed
                 const Text(
-                  'Welcome back you\'ve been missed',
+                  'Welcome back, Good to see you again',
                   style: TextStyle(
                       color: Color.fromARGB(255, 22, 21, 21), fontSize: 16),
                 ),
@@ -67,7 +66,8 @@ class _LoginPageState extends State<LoginPage> {
                       children: [
                         Text(
                           'Forgot Password?',
-                          style: TextStyle(color: Color.fromARGB(255, 38, 37, 37)),
+                          style:
+                              TextStyle(color: Color.fromARGB(255, 38, 37, 37)),
                         )
                       ],
                     )),
@@ -75,7 +75,9 @@ class _LoginPageState extends State<LoginPage> {
 
                 //Sign in Button
                 MyButton(
-                  onTap: widget.onTap,
+                  //controller: LoginPage.signInController,
+                  onTap: () {},
+                  textSign: 'Sign In',
                 ),
 
                 // Or continue with
@@ -89,15 +91,15 @@ class _LoginPageState extends State<LoginPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text('Not a Member?',
+                    const Text('Don\'t have an account?',
                         style: TextStyle(
                           color: Color.fromARGB(255, 63, 61, 61),
                         )),
                     const SizedBox(width: 7),
                     GestureDetector(
-                      onTap: (){},
+                      onTap: widget.onTap,
                       child: const Text(
-                        'Register Now',
+                        'Sign Up',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Color.fromARGB(255, 13, 98, 167),
