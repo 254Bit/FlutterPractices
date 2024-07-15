@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:social_networking_app/components/my_buttons.dart';
 import 'package:social_networking_app/components/my_textfields.dart';
@@ -13,6 +14,12 @@ class LoginPage extends StatefulWidget {
   static var usernameController = TextEditingController();
   static var passwordController = TextEditingController();
   static var signInController = TextEditingController();
+
+// Method to sign user in
+  void signIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: usernameController.text, password: passwordController.text);
+  }
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -76,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                 //Sign in Button
                 MyButton(
                   //controller: LoginPage.signInController,
-                  onTap: () {},
+                  onTap: signIn,
                   textSign: 'Sign In',
                 ),
 

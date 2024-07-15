@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:social_networking_app/auth/login_or_register.dart';
 import 'package:social_networking_app/pages/home_page.dart';
@@ -14,10 +15,10 @@ class AuthPage extends StatelessWidget {
             // User logged in
             if (snapshot.hasData) {
               return const HomePage();
-            } 
+            }
             // User not logged in
-            else{
-              return const LoginOrRegister()
+            else {
+              return const LoginOrRegister();
             }
           }),
     );
