@@ -2,15 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:social_networking_app/components/my_buttons.dart';
 import 'package:social_networking_app/components/my_textfields.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class LoginPage extends StatefulWidget {
+  final Function()? onTap;
+  const LoginPage({
+    super.key,
+    required this.onTap,
+    });
 
   // Text Editing Controllers
   static var usernameController = TextEditingController();
   static var passwordController = TextEditingController();
 
-  // Sign User In Method
-  void signUserIn() {}
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +44,7 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(height: 25),
                 //Username text field
                 MyTextFields(
-                  controller: usernameController,
+                  controller: LoginPage.usernameController,
                   hintText: 'Username',
                   obscureText: false,
                 ),
@@ -44,7 +52,7 @@ class LoginPage extends StatelessWidget {
 
                 // Password text field
                 MyTextFields(
-                  controller: passwordController,
+                  controller: LoginPage.passwordController,
                   hintText: 'Password',
                   obscureText: true,
                 ),
@@ -59,7 +67,7 @@ class LoginPage extends StatelessWidget {
                       children: [
                         Text(
                           'Forgot Password?',
-                          style: TextStyle(color: Colors.grey),
+                          style: TextStyle(color: Color.fromARGB(255, 38, 37, 37)),
                         )
                       ],
                     )),
@@ -67,7 +75,7 @@ class LoginPage extends StatelessWidget {
 
                 //Sign in Button
                 MyButton(
-                  onTap: signUserIn,
+                  onTap: widget.onTap,
                 ),
 
                 // Or continue with
