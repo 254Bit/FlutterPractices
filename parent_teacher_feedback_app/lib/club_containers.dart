@@ -18,12 +18,14 @@ class MyClubContainers extends StatelessWidget {
         horizontal: 25.0,),
       child: Center(
         
-        child: Container(
-                //Image.asset(myImages),
+        child: Container( 
                  padding:const EdgeInsets.all(20),
                   height: 200,
                   width: 350,
                   decoration: BoxDecoration(
+                    image: DecorationImage(image: AssetImage(imagePath,),
+                    fit: BoxFit.cover,
+                    ),
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.grey[300],
                     boxShadow: [
@@ -36,7 +38,13 @@ class MyClubContainers extends StatelessWidget {
                     ],
       
                   ),
-                  child: Text(myTexts),
+                  child: Text(myTexts,
+                  style: const TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  )
+                  ),
             ),
       ),
         

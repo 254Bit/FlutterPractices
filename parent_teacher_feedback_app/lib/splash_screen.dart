@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// import 'package:parent_teacher_feedback_app/landing_page.dart';
 import 'package:parent_teacher_feedback_app/screens/login.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -12,9 +13,9 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
    
-    Future.delayed(const Duration(seconds: 7), () {
+    Future.delayed(const Duration(seconds: 1), () {
       Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => LogIn(),
+        builder: (context) => const LogIn(),
       ));
     });
     return Scaffold(
@@ -22,17 +23,12 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Positioned.fill(
-                child: Image.asset(
+                Image.asset(
               'assets/Proud to be a Black Student.png',
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
               fit: BoxFit.fill,
-            )),
-            // const SizedBox(
-            //   height: 10,
-            // ),
-            const CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-            ),
+            )
           ],
         ),
       ),

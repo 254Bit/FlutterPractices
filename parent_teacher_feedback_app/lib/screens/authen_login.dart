@@ -18,7 +18,7 @@ class AuthenticatePage extends StatelessWidget {
         }
         // User is not logged in
         else {
-          return LogIn();
+          return const LogIn();
         }
       },
     ));
