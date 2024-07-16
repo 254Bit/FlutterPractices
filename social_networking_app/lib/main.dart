@@ -1,7 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:social_networking_app/auth/auth.dart';
-import '';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'package:social_networking_app/auth/login_or_register.dart';
 import 'package:social_networking_app/pages/register.dart';
 import 'pages/login_page.dart';
