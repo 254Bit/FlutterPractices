@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:social_networking_app/components/column_post.dart';
 import 'package:social_networking_app/components/my_textfields.dart';
 
 class HomePage extends StatefulWidget {
@@ -47,8 +48,25 @@ class _HomePageState extends State<HomePage> {
           // 360 Column
           Expanded(
             child: StreamBuilder(
-              stream: FirebaseFirestore.instance.collection(collectionPath),
-              builder: ,)
+              stream: FirebaseFirestore.instance
+              .collection('User Posts'
+              ).orderBy('Timestamp',
+              descending: false,
+              )
+              .snapshots(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData){
+                  return ListView.builder(
+                    itemBuilder: ((context, index) {
+                      final post = snapshot.data!.docs[index];
+                      return ColumnPost(
+                        message: post['Message'], 
+                        user: post['userEmail'], 
+                        )
+                    }));
+                }
+              },
+              )
             ),
 
           // the message
