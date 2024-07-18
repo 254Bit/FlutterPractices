@@ -66,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 10),
 
                 // Forgot Password
-                const Padding(
+                Padding(
                     padding: EdgeInsets.symmetric(horizontal: 25.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -74,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                         Text(
                           'Forgot Password?',
                           style:
-                              TextStyle(color: Color.fromARGB(255, 38, 37, 37)),
+                              TextStyle(color: Theme.of(context).colorScheme.primary),
                         )
                       ],
                     )),
