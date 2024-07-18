@@ -23,23 +23,24 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey,
+        backgroundColor:Theme.of(context).colorScheme.background,
         body: SafeArea(
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // Logo
-                const Icon(
-                  Icons.lock,
+                Icon(
+                  Icons.message_rounded,
                   size: 100,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 const SizedBox(height: 50),
                 // Welcome Back, You have been missed
-                const Text(
+                 Text(
                   'Let Us Create An Account For You',
                   style: TextStyle(
-                      color: Color.fromARGB(255, 22, 21, 21), fontSize: 16),
+                      color: Theme.of(context).colorScheme.primary),
                 ),
                 const SizedBox(height: 25),
                 //Username text field
@@ -82,18 +83,18 @@ class _RegisterPageState extends State<RegisterPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text('Already have an account?',
+                    Text('Already have an account?',
                         style: TextStyle(
-                          color: Color.fromARGB(255, 63, 61, 61),
+                          color: Theme.of(context).colorScheme.primary,
                         )),
                     const SizedBox(width: 7),
                     GestureDetector(
                       onTap: widget.onTap,
-                      child: const Text(
-                        'Sign Up',
+                      child: Text(
+                        'Log in now',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 13, 98, 167),
+                          color: Theme.of(context).colorScheme.primary,
                         ),
                       ),
                     )

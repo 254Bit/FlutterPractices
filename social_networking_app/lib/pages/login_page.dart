@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_networking_app/components/my_buttons.dart';
 import 'package:social_networking_app/components/my_textfields.dart';
+import 'package:social_networking_app/themes/light_mode.dart';
 
 class LoginPage extends StatefulWidget {
   final Function()? onTap;
@@ -26,29 +27,31 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey,
+        backgroundColor: Theme.of(context).colorScheme.background,
         body: SafeArea(
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // Logo
-                const Icon(
-                  Icons.lock,
+                Icon(
+                  Icons.message_rounded,
                   size: 100,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 const SizedBox(height: 50),
                 // Welcome Back, You have been missed
-                const Text(
+                 Text(
                   'Welcome back, Good to see you again',
                   style: TextStyle(
-                      color: Color.fromARGB(255, 22, 21, 21), fontSize: 16),
+                      color:Theme.of(context).colorScheme.primary, 
+                      fontSize: 16),
                 ),
                 const SizedBox(height: 25),
                 //Username text field
                 MyTextFields(
                   controller: LoginPage.usernameController,
-                  hintText: 'Username',
+                  hintText: 'Email',
                   obscureText: false,
                 ),
                 const SizedBox(height: 20),
@@ -95,18 +98,18 @@ class _LoginPageState extends State<LoginPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text('Don\'t have an account?',
+                     Text('Don\'t have an account?',
                         style: TextStyle(
-                          color: Color.fromARGB(255, 63, 61, 61),
+                          color: Theme.of(context).colorScheme.primary,
                         )),
                     const SizedBox(width: 7),
                     GestureDetector(
                       onTap: widget.onTap,
-                      child: const Text(
+                      child: Text(
                         'Sign Up',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 13, 98, 167),
+                          color: Theme.of(context).colorScheme.primary,
                         ),
                       ),
                     )

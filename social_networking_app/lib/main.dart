@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_networking_app/auth/login_or_register.dart';
 import 'package:social_networking_app/pages/home_page.dart';
+import 'package:social_networking_app/themes/light_mode.dart';
 
 
 void main() {
@@ -13,9 +14,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: const LoginOrRegister(),
+      theme: lightmode
     );
   }
 }
