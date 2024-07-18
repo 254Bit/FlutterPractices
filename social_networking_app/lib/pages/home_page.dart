@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:social_networking_app/components/column_post.dart';
 import 'package:social_networking_app/components/my_textfields.dart';
@@ -12,20 +11,17 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   // User
-  final currentUser = FirebaseAuth.instance.currentUser!;
-
+ 
   // Text Controller
   final textController = TextEditingController();
 
 // Sign Out User Method
   void signOut() {
-    FirebaseAuth.instance.signOut();
+
   }
 
   // Post Message
-  void postMessage(){
-
-  }
+  void postMessage() {}
 
   @override
   Widget build(BuildContext context) {
@@ -46,28 +42,6 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: Column(children: [
           // 360 Column
-          Expanded(
-            child: StreamBuilder(
-              stream: FirebaseFirestore.instance
-              .collection('User Posts'
-              ).orderBy('Timestamp',
-              descending: false,
-              )
-              .snapshots(),
-              builder: (context, snapshot) {
-                if (snapshot.hasData){
-                  return ListView.builder(
-                    itemBuilder: ((context, index) {
-                      final post = snapshot.data!.docs[index];
-                      return ColumnPost(
-                        message: post['Message'], 
-                        user: post['userEmail'], 
-                        )
-                    }));
-                }
-              },
-              )
-            ),
 
           // the message
           Padding(
@@ -76,20 +50,19 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Expanded(
                   child: MyTextFields(
-                    controller: textController, 
-                    hintText: 'Write something on the 360 Column', 
-                    obscureText: false),
-                    ),
-          
-                    IconButton(
-                      onPressed: postMessage, 
-                      icon: const Icon(Icons.arrow_circle_up))
+                      controller: textController,
+                      hintText: 'Write something on the 360 Column',
+                      obscureText: false),
+                ),
+                IconButton(
+                    onPressed: postMessage,
+                    icon: const Icon(Icons.arrow_circle_up))
               ],
             ),
           ),
 
           // logged in as
-          Text('Logged in as: ' + currentUser.email!)
+          const Text('Logged in as: ')
         ]),
       ),
     );
