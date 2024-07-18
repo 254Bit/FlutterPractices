@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_networking_app/components/column_post.dart';
+import 'package:social_networking_app/components/my_drawer.dart';
 import 'package:social_networking_app/components/my_textfields.dart';
 
 class HomePage extends StatefulWidget {
@@ -36,7 +37,9 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: MyDrawer(),
+      ),
 
     );
   }

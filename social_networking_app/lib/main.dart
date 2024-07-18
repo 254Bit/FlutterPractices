@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:social_networking_app/auth/login_or_register.dart';
+import 'package:social_networking_app/services/auth/login_or_register.dart';
 import 'package:social_networking_app/components/my_drawer.dart';
 import 'package:social_networking_app/pages/home_page.dart';
 import 'package:social_networking_app/themes/light_mode.dart';
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const MyDrawer(),
+      home: const HomePage(),
       theme: lightmode
     );
   }
