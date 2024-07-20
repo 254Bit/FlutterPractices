@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:social_networking_app/services/auth/login_or_register.dart';
-import 'package:social_networking_app/components/my_drawer.dart';
+import 'package:provider/provider.dart';
 import 'package:social_networking_app/pages/home_page.dart';
 import 'package:social_networking_app/themes/light_mode.dart';
+import 'package:social_networking_app/themes/theme_provider.dart';
 
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create:(context)=> ThemeProvider(),
+      child: const MyApp(),
+      ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +23,7 @@ class MyApp extends StatelessWidget {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const HomePage(),
-      theme: lightmode
+      theme: Provider.of<ThemeProvider>(context).themeData,
     );
   }
 }
