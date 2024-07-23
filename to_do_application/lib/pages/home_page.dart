@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_application/data/database.dart';
 import 'package:to_do_application/utilities/dialogue_box.dart';
 import 'package:to_do_application/utilities/todo_tile.dart';
 import 'package:to_do_application/utilities/my_buttons.dart';
@@ -11,26 +12,30 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // Reference the hive box
+  final _myBox = Hive.box('mybox');
+  ToDoDatabase db = ToDoDatabase();
+
+  @override
+  void initState() {
+    // if this is the first time opening the app, then create default data
+    super.initState();
+  }
+
   //Text Controller
   final _controller = TextEditingController;
-
-  // list of todo tasks
-  List toDoList = [
-    ['Make Tutorial', true],
-    ['Do Exercise', true],
-  ];
 
   // Check box tapped or not
   void checkBoxChanged(bool? value, int index) {
     setState(() {
-      toDoList[index][1] = !toDoList[index][1];
+      db.toDoList[index][1] = !db.toDoList[index][1];
     });
   }
 
 // Save a New Task
   void saveNewTask() {
     setState(() {
-      toDoList.add([_controller.text, false]);
+      db.toDoList.add([_controller.text, false]);
       _controller.clear();
     });
     Navigator.of(context).pop();
@@ -39,7 +44,7 @@ class _HomePageState extends State<HomePage> {
   // Delete a Task
   void deleteTask(int index) {
     setState(() {
-      toDoList.removeAt(index);
+      db.toDoList.removeAt(index);
     });
   }
 
@@ -69,13 +74,13 @@ class _HomePageState extends State<HomePage> {
         child: const Icon(Icons.add),
       ),
       body: ListView.builder(
-        itemCount: toDoList.length,
+        itemCount: db.toDoList.length,
         itemBuilder: (context, index) {
           return ToDoTile(
-              taskName: toDoList[index][0],
-              taskComplete: toDoList[index][1],
+              taskName: db.toDoList[index][0],
+              taskComplete: db.toDoList[index][1],
               onChanged: (value) => checkBoxChanged(value, index),
-              deleteFunction: () => deleteTask);
+              deleteFunction: (context) => deleteTask(index));
         },
       ),
     );
