@@ -9,6 +9,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // list of todo tasks
+  List toDoList = [
+    ['Make Tutorial', false],
+    ['Do Exercise', false],
+  ];
+
+  // Check box tapped or not
+  void checkBoxChanged(bool? value, int index) {
+    setState(() {
+      toDoList[index][1] = !toDoList[index][1];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,10 +30,15 @@ class _HomePageState extends State<HomePage> {
         title: const Text('TO DO'),
         elevation: 0,
       ),
-      body: ListView(
-        children: [
-          ToDoTile(),
-        ],
+      body: ListView.builder(
+        itemCount: toDoList.length,
+        itemBuilder: (context, index) {
+          return ToDoTile(
+              taskName: toDoList[index][0],
+              taskComplete: toDoList[index][1],
+              onChanged: (value) => checkBoxChanged(value, index),
+              );
+        },
       ),
     );
   }
