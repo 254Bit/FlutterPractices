@@ -23,8 +23,8 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
-  //Text Controller
-  get _controller => TextEditingController;
+  //Text Controller - Correct this place tommorow
+  dynamic _controller = TextEditingController;
 
   // Check box tapped or not
   void checkBoxChanged(bool? value, int index) {
