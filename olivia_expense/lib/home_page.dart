@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:olivia_expense/components/expense_summary.dart';
 import 'package:olivia_expense/components/expense_tile.dart';
 import 'package:olivia_expense/expense_data/expense_data.dart';
 import 'package:olivia_expense/models/expense_items.dart';
@@ -73,13 +74,14 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Colors.grey[300],
           floatingActionButton: FloatingActionButton(
             onPressed: addNewExpense,
+            backgroundColor: Colors.black,
             child: const Icon(Icons.add),
           ),
           body: ListView(
-            // Weekly Summary
-
             // Expense List
             children: [
+              // Weekly Summary
+              ExpenseSummary(startOfWeek: value.startOfWeekDate()),
               ListView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
